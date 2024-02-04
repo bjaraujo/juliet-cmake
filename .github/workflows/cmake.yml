@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   build_juliet:
-    runs-on: Ubuntu-2022
+    runs-on: ubuntu-latest
     steps:
     
       - name: Get Juliet
