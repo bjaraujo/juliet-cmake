@@ -14,12 +14,11 @@ jobs:
         shell: bash
         run: unzip $GITHUB_WORKSPACE/2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
         
-      - name: List Juliet
-        shell: bash
-        run: ls ..
-
       - name: Configure Juliet
-        run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -S $GITHUB_WORKSPACE/.. -B $GITHUB_WORKSPACE/build
+        run: cmake -S $GITHUB_WORKSPACE -B $GITHUB_WORKSPACE/build
+
+      - name: Output Juliet
+        run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -B $GITHUB_WORKSPACE/build  
     
       - name: Save Artifacts
         uses: actions/upload-artifact@v3
