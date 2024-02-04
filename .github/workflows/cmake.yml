@@ -2,7 +2,7 @@ name: CMake
 on: [push]
 
 jobs:
-  build_llvm:
+  build_juliet:
     runs-on: Ubuntu-2022
     steps:
     
