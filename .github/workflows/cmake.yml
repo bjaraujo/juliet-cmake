@@ -13,22 +13,17 @@ jobs:
       - name: Unzip Juliet
         shell: bash
         run: unzip $GITHUB_WORKSPACE/2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
-        
-      - name: Create Build Environment
-        run: cmake -E make_directory ${{runner.workspace}}/build
-        
+       
       - name: Configure Juliet
-        working-directory: ${{runner.workspace}}/build
-        run: cmake ..
+        run: cmake $GITHUB_WORKSPACE
 
       - name: Output Juliet
-        working-directory: ${{runner.workspace}}/build
-        run: cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+        run: cmake $GITHUB_WORKSPACE -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     
       - name: Save Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: Juliet
-          path: $GITHUB_WORKSPACE/build/compile_commands.json
+          path: $GITHUB_WORKSPACE/compile_commands.json
           retention-days: 3
 
