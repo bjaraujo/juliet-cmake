@@ -13,7 +13,7 @@ set(CMAKE_C_FLAGS_MINSIZEREL "-g")
 add_compile_options(-O0)  # hopefully adding -O0 here should turn off test optimizations
 
 option(PLACE_OUTPUT_IN_TOPLEVEL_DIR "Use TOPLEVEL_DIR/bin as the output for all test binaries" ON)
-set(TOPLEVEL_DIR "${CMAKE_SOURCE_DIR}")
+set(TOPLEVEL_DIR "${CMAKE_SOURCE_DIR}/C")
 if (PLACE_OUTPUT_IN_TOPLEVEL_DIR)
     # put output from all CWEs in a user-defined top-level directory
     # default output directory relative to the top level directory is bin, can be
