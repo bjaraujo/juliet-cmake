@@ -1,0 +1,26 @@
+name: CMake
+on: [push]
+
+jobs:
+  build_llvm:
+    runs-on: Ubuntu-2022
+    steps:
+    
+      - name: Get Juliet
+        shell: bash
+        run: curl --output $GITHUB_WORKSPACE/2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip --url https://samate.nist.gov/SARD/downloads/test-suites/2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
+
+      - name: Unzip Juliet
+        shell: bash
+        run: unzip $GITHUB_WORKSPACE/2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
+        
+      - name: Configure Juliet
+        run: cmake -S 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3 -B 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3/build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    
+      - name: Save Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Juliet
+          path: 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3/build/compile_commands.json
+          retention-days: 3
+
