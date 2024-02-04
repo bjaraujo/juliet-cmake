@@ -16,10 +16,10 @@ jobs:
         
       - name: List Juliet
         shell: bash
-        run: ls
+        run: ls ..
 
       - name: Configure Juliet
-        run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -S $GITHUB_WORKSPACE -B $GITHUB_WORKSPACE/build
+        run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -S $GITHUB_WORKSPACE/.. -B $GITHUB_WORKSPACE/build
     
       - name: Save Artifacts
         uses: actions/upload-artifact@v3
