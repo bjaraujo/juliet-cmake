@@ -13,6 +13,7 @@ jobs:
       - name: Unzip Juliet
         shell: bash
         run: unzip $GITHUB_WORKSPACE/2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
+        run: ls
         
       - name: Configure Juliet
         run: cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -S $GITHUB_WORKSPACE -B $GITHUB_WORKSPACE/build
