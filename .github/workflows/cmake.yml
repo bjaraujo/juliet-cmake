@@ -16,11 +16,8 @@ jobs:
         run: unzip 2017-10-01-juliet-test-suite-for-c-cplusplus-v1-3.zip
        
       - name: Configure Juliet
-        run: cmake .
-
-      - name: Output Juliet
         run: cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-    
+   
       - name: Save Artifacts
         uses: actions/upload-artifact@v3
         with:

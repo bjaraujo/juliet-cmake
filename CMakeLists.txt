@@ -53,7 +53,6 @@ file(GLOB_RECURSE SOURCE_FILES CWE*.c CWE*.cpp)
 list(REMOVE_ITEM SOURCE_FILES ${WINDOWS_FILES} "") # empty string in case windows files is empty
 
 foreach(SOURCE_FILE ${SOURCE_FILES})
-  message(${SOURCE_FILE})
   get_filename_component(SOURCE_NAME "${SOURCE_FILE}" NAME)
   get_filename_component(SOURCE_DIRECTORY "${SOURCE_FILE}" DIRECTORY)
 
